@@ -1,1 +1,1 @@
-# StorIt
+# StoreIt
