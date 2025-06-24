@@ -90,15 +90,18 @@ const createQueries = (
   return queries;
 };
 
-export const getFiles = async (props?: GetFilesProps) => {
+export const getFiles = async ({
+  types = [],
+  searchText = "",
+  sort = "$createdAt-desc",
+  limit,
+}: GetFilesProps) => {
   const { databases } = await createAdminClient();
 
   try {
     const currentUser = await getCurrentUser();
 
     if (!currentUser) throw new Error("User not found");
-
-    const { types = [], searchText = "", sort = "$createdAt-desc", limit } = props || {};
 
     const queries = createQueries(currentUser, types, searchText, sort, limit);
 

@@ -5,12 +5,13 @@ import Search from "@/components/Search";
 import FileUploader from "@/components/FileUploader";
 import { signOutUser } from "@/lib/actions/user.actions";
 
-interface Props {
+const Header = ({
+  userId,
+  accountId,
+}: {
   userId: string;
   accountId: string;
-}
-
-const Header = ({ userId, accountId }: Props) => {
+}) => {
   return (
     <header className="header">
       <Search />
